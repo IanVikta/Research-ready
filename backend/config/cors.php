@@ -16,7 +16,11 @@ return [
         array_map('trim', explode(',', (string) env('FRONTEND_URL', 'http://localhost:5173,http://127.0.0.1:5173')))
     ),
 
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => [
+        '#^https://([a-z0-9-]+\.)*expertresearchreadyservices\.com$#',
+        '#^https://.*\.workers\.dev$#',
+        '#^https://.*\.vercel\.app$#',
+    ],
 
     'allowed_headers' => ['Content-Type', 'Accept', 'Origin', 'X-Requested-With', 'Authorization'],
 
