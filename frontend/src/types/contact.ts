@@ -3,6 +3,8 @@ export type ServiceOption =
   | 'Thesis and Dissertation Assistance'
   | 'Research Proposal Writing'
   | 'Literature Review and Data Analysis'
+  | 'Business Research Proposals'
+  | 'Content Humanization and Plagiarism Checking'
   | 'Other';
 
 export interface ContactFormValues {
@@ -35,4 +37,3 @@ export interface ServiceItem {
   description: string;
   highlights: string[];
 }
-

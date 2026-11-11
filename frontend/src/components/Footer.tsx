@@ -11,6 +11,8 @@ const FOOTER_SERVICES: ServiceOption[] = [
   'Thesis and Dissertation Assistance',
   'Research Proposal Writing',
   'Literature Review and Data Analysis',
+  'Business Research Proposals',
+  'Content Humanization and Plagiarism Checking',
 ];
 
 export const Footer: React.FC<FooterProps> = ({ onSelectService }) => {
@@ -156,7 +158,20 @@ export const Footer: React.FC<FooterProps> = ({ onSelectService }) => {
                 <span className="block text-xs text-white/45 uppercase">
                   Telephone
                 </span>
-                <span>+256 (0) 766 892 024</span>
+                <div className="flex flex-col gap-1 mt-0.5">
+                  <a
+                    href="tel:+256766892024"
+                    className="hover:text-white transition-colors"
+                  >
+                    +256 (0) 766 892 024
+                  </a>
+                  <a
+                    href="tel:+256749579434"
+                    className="hover:text-white transition-colors"
+                  >
+                    +256 (0) 749 579 434
+                  </a>
+                </div>
               </li>
               <li>
                 <span className="block text-xs text-white/45 uppercase">

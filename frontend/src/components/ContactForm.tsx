@@ -26,13 +26,15 @@ const SERVICE_OPTIONS: ServiceOption[] = [
   'Thesis and Dissertation Assistance',
   'Research Proposal Writing',
   'Literature Review and Data Analysis',
+  'Business Research Proposals',
+  'Content Humanization and Plagiarism Checking',
   'Other',
 ];
 
 // Configurable corporate contact details (placeholders ready for production values)
 const COMPANY_CONTACT_CONFIG = {
   email: 'expertresearchreadyservices@gmail.com',
-  phone: '+256 (0) 766 892 024',
+  phones: ['+256 (0) 766 892 024', '+256 (0) 749 579 434'],
   hours: 'Monday – Friday: 8:30 AM – 6:00 PM (EAT)',
   location: 'Academic Consultation Office (By Appointment & Remote Worldwide)',
 };
@@ -177,11 +179,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedService }) => 
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-brand-textSecondary">
-                    Telephone / Consultation Line
+                    Telephone / Consultation Lines
                   </p>
-                  <p className="text-sm font-medium text-brand-navy">
-                    {COMPANY_CONTACT_CONFIG.phone}
-                  </p>
+                  <div className="flex flex-col gap-0.5 mt-0.5">
+                    {COMPANY_CONTACT_CONFIG.phones.map((phone) => (
+                      <a
+                        key={phone}
+                        href={`tel:${phone.replace(/[^+\d]/g, '')}`}
+                        className="text-sm font-medium text-brand-navy hover:text-brand-gold transition-colors"
+                      >
+                        {phone}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
 

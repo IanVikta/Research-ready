@@ -3,6 +3,8 @@ const ALLOWED_SERVICES = [
   'Thesis and Dissertation Assistance',
   'Research Proposal Writing',
   'Literature Review and Data Analysis',
+  'Business Research Proposals',
+  'Content Humanization and Plagiarism Checking',
   'Other',
 ];
 
