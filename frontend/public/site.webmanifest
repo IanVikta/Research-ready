@@ -1,0 +1,17 @@
+{
+  "name": "Expert Research Ready Services",
+  "short_name": "Expert Research",
+  "description": "Reliable academic and business research support, thesis assistance, proposals, data analysis, content humanization and plagiarism checking.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#142B45",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
+

@@ -8,6 +8,7 @@ import { Approach } from './components/Approach';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { ContactForm } from './components/ContactForm';
 import { Footer } from './components/Footer';
+import { WhatsAppButton } from './components/WhatsAppButton';
 import { ServiceOption } from './types/contact';
 
 export const App: React.FC = () => {
@@ -39,6 +40,7 @@ export const App: React.FC = () => {
         <ContactForm selectedService={selectedService} />
       </main>
       <Footer onSelectService={(service) => setSelectedService(service)} />
+      <WhatsAppButton />
     </div>
   );
 };

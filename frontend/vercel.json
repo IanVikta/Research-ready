@@ -9,7 +9,7 @@
       "destination": "/api/$1"
     },
     {
-      "source": "/((?!api/).*)",
+      "source": "/((?!api/|robots\\.txt|sitemap\\.xml|site\\.webmanifest|favicon\\.svg|assets/).*)",
       "destination": "/index.html"
     }
   ]
