@@ -117,4 +117,9 @@ return [
 
     'company_notification_email' => env('COMPANY_NOTIFICATION_EMAIL', 'enquiries@expertresearchready.com'),
 
+    'https_relay' => [
+        'url' => env('HTTPS_MAIL_RELAY_URL', 'https://frontend-cyan-sigma-67.vercel.app/api/v1/send-email'),
+        'secret' => env('HTTPS_MAIL_RELAY_SECRET'),
+    ],
+
 ];

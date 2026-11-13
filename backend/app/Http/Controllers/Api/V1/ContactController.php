@@ -14,9 +14,6 @@ use Throwable;
 
 class ContactController extends Controller
 {
-    private const HTTPS_MAIL_RELAY_URL = 'https://frontend-cyan-sigma-67.vercel.app/api/v1/send-email';
-    private const HTTPS_MAIL_RELAY_SECRET = 'errs_mail_relay_2026_9f8a7b6c5d4e';
-
     /**
      * Store a newly submitted contact enquiry and dispatch an email notification.
      *
@@ -78,13 +75,20 @@ class ContactController extends Controller
      */
     private function sendViaHttpsRelay(string $recipient, ContactEnquiry $enquiry, ContactEnquiryReceived $mailable): void
     {
+        $relayUrl = config('mail.https_relay.url');
+        $relaySecret = config('mail.https_relay.secret');
+
+        if (empty($relayUrl) || empty($relaySecret)) {
+            throw new \RuntimeException('HTTPS mail relay is not configured.');
+        }
+
         $html = $mailable->render();
 
         $response = Http::timeout(8)
             ->withHeaders([
-                'x-relay-secret' => self::HTTPS_MAIL_RELAY_SECRET,
+                'x-relay-secret' => $relaySecret,
             ])
-            ->post(self::HTTPS_MAIL_RELAY_URL, [
+            ->post($relayUrl, [
                 'to' => $recipient,
                 'subject' => 'New Research Consultation Enquiry: ' . $enquiry->service,
                 'replyTo' => sprintf('"%s" <%s>', str_replace('"', '', $enquiry->full_name), $enquiry->email),

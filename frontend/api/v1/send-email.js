@@ -1,8 +1,8 @@
 import tls from 'node:tls';
 
-const RELAY_SECRET = 'errs_mail_relay_2026_9f8a7b6c5d4e';
-const SMTP_USER = process.env.MAIL_USERNAME || 'expertresearchreadyservices@gmail.com';
-const SMTP_PASS = process.env.MAIL_PASSWORD || 'sajiqhwkxvtnacib';
+const RELAY_SECRET = process.env.RELAY_SECRET;
+const SMTP_USER = process.env.MAIL_USERNAME;
+const SMTP_PASS = process.env.MAIL_PASSWORD;
 
 function sendGmailSmtp({ to, subject, replyTo, html }) {
   return new Promise((resolve, reject) => {
@@ -85,6 +85,10 @@ function sendGmailSmtp({ to, subject, replyTo, html }) {
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ success: false, message: 'Method not allowed' });
+  }
+
+  if (!RELAY_SECRET || !SMTP_USER || !SMTP_PASS) {
+    return res.status(500).json({ success: false, message: 'Mail relay environment variables are not configured' });
   }
 
   const secret = req.headers['x-relay-secret'];
